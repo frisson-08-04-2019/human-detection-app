@@ -1,0 +1,42 @@
+<html>
+<head>
+    <script>
+  var loadImg = function(event) {
+    var output = document.getElementById('loaded_img');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    var but_submit = document.getElementById('submit_button');
+    but_submit.disabled = false;
+  };
+    </script>
+</head>
+<body>
+
+<form action="crop" method="POST"
+      enctype="multipart/form-data">
+    <input type="file" id="file-input" name="file" accept="image/*" style="cursor: pointer;  display: none"
+           onchange="loadImg(event)"/>
+    <br>
+    <table>
+        <tr>
+            <td>
+            </td>
+            <td align="center">
+                <input type="number" name="margin_h" min="0" max="25" value="5"> %
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="number" name="margin_w" min="0" max="25" value="10"> %
+            </td>
+            <td>
+                <label for="file-input">
+                    <img id="loaded_img" src="static/placeholder.png" height="500" border="2"
+                    style="cursor:pointer"/>
+                </label>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" id="submit_button" value="Crop" disabled>
+</form>
+</body>
+</html>

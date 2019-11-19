@@ -1,0 +1,3 @@
+[submodule "human_detection_engine"]
+	path = human_detection_engine
+	url = https://github.com/frisson-08-04-2019/human-detection-engine
